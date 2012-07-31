@@ -1,0 +1,21 @@
+1. Part of the Twisted 10.0.0 code contains lvalue casting (in cfsupport.c), Twisted-10.0.0-no-lvalue-casting.tar.bz2 fixed it.
+
+## The changes I made:
+
+$ diff cfsupport.c cfsupport.c.orig 
+128c128
+<   __pyx_v_socket = (struct __pyx_obj_9cfsupport_PyCFSocket *) Py_None; Py_INCREF(((PyObject*)__pyx_v_socket));
+---
+>   ((PyObject*)__pyx_v_socket) = Py_None; Py_INCREF(((PyObject*)__pyx_v_socket));
+134c134
+<   __pyx_v_socket = (struct __pyx_obj_9cfsupport_PyCFSocket *) __pyx_1;
+---
+>   ((PyObject *)__pyx_v_socket) = __pyx_1;
+829c829
+<   __pyx_v_obj = (struct __pyx_obj_9cfsupport_PyCFRunLoopTimer *) Py_None; Py_INCREF(((PyObject*)__pyx_v_obj));
+---
+>   ((PyObject*)__pyx_v_obj) = Py_None; Py_INCREF(((PyObject*)__pyx_v_obj));
+835c835
+<   __pyx_v_obj = (struct __pyx_obj_9cfsupport_PyCFRunLoopTimer *) __pyx_1;
+---
+>   ((PyObject *)__pyx_v_obj) = __pyx_1;
