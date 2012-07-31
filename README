@@ -1,0 +1,1 @@
+1. Part of the Twisted 10.0.0 code contains lvalue casting (in cfsupport.c), Twisted-10.0.0-no-lvalue-casting.tar.bz2 fixed it.
